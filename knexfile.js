@@ -17,6 +17,9 @@ module.exports = {
     },
     migrations: {
       directory: `${__dirname}/src/database/migration`
+    },
+    seeds: {
+      directory: `${__dirname}/src/database/seeds`
     }
   },
 
