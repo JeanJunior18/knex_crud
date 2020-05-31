@@ -1,5 +1,11 @@
 // Update with your config settings.
-
+/**
+ * To create this file use:
+ * yarn knex init
+ * 
+ * To create migrations use:
+ * yarn knex migrate:make name_migration
+ */
 module.exports = {
 
   development: {
@@ -8,7 +14,9 @@ module.exports = {
       database: 'knex_test',
       user: 'postgres',
       password: 'postgres',
-      host: '127.0.0.17'
+    },
+    migrations: {
+      directory: `${__dirname}/src/database/migration`
     }
   },
 
