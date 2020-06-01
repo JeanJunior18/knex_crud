@@ -21,7 +21,7 @@ module.exports = {
 
       res.status(201).send()
     } catch (error) {
-      next(error.detail);
+      next(error);
     }
   },
   async update(req, res, next){
@@ -36,7 +36,7 @@ module.exports = {
 
       return res.send()
     } catch (error) {
-      next(error.detail);
+      next(error);
     }
   },
   async delete(req, res, next){
