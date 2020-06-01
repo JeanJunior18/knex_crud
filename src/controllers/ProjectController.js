@@ -9,11 +9,15 @@ module.exports = {
       .limit(5)
       .offset((page - 1)*5);
 
+      const countQuery = knex('projects').count()
+
       if(user_id){
         query
         .where({ user_id })
         .join('users', 'users.id', '=', 'projects.user_id')
         .select('projects.*', 'users.username')
+
+        countQuery.where({ user_id })
       }
       else{
         query
@@ -22,7 +26,9 @@ module.exports = {
       }
 
       const projects = await query;
+      const [count] = await countQuery;
 
+      res.header('X-Total-Count', count['count']);
       return res.json(projects)
     } catch (error) {
       next(error)
