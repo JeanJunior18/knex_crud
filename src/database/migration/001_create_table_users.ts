@@ -6,8 +6,7 @@ export async function up(knex:Knex) {
   return knex.schema.createTable('users', function(table) {
     table.increments('id')
     table.text('username').unique().notNullable()
-    table.timestamp('created_at').defaultTo(knex.fn.now())
-    table.timestamp('updated_at').defaultTo(knex.fn.now())
-  }).then(() => knex.raw(onUpdateTrigger('users')))
+    table.timestamps(true, true)
+  })
 }
 export async function down(knex:Knex) {knex.schema.dropTable('users')}

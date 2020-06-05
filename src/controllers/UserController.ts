@@ -1,4 +1,4 @@
-const knex = require('../database');
+import knex from '../database'
 import { Request, Response, NextFunction } from 'express';
 
 export = {

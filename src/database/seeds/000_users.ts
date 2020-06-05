@@ -1,5 +1,6 @@
+import Knex from 'knex';
 
-exports.seed = function(knex) {
+export default function(knex:Knex) {
   // Deletes ALL existing entries
   return knex('users').del()
     .then(function () {
