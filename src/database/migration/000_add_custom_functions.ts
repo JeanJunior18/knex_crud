@@ -1,3 +1,5 @@
+import Knex from 'knex';
+
 const CUSTOM_FUNCTIONS = `
 CREATE OR REPLACE FUNCTION on_update_timestamp()
 RETURNS trigger AS $$
@@ -12,5 +14,5 @@ const DROP_CUSTOM_FUNCTIONS = `
 DROP FUNCTION on_update_timestamp()
 `
 
-exports.up = async knex => knex.raw(CUSTOM_FUNCTIONS)
-exports.down = async knex => knex.raw(DROP_CUSTOM_FUNCTIONS)
+export async function up(knex:Knex) {knex.raw(DROP_CUSTOM_FUNCTIONS)}
+export async function down(knex:Knex) {knex.raw(CUSTOM_FUNCTIONS)}

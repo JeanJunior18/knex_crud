@@ -1,7 +1,8 @@
 const knex = require('../database');
+import { Request, Response, NextFunction } from 'express';
 
-module.exports = {
-  async index(req, res, next){
+export = {
+  async index(req:Request, res:Response, next:NextFunction){
     try {
       const { user_id, page = 1 } = req.query;
 
@@ -35,7 +36,7 @@ module.exports = {
       next(error)
     }
   },
-  async create(req, res, next){
+  async create(req:Request, res:Response, next:NextFunction){
     try {
       const { title, user_id } = req.body;
 

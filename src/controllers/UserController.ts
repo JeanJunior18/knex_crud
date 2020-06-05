@@ -1,7 +1,8 @@
 const knex = require('../database');
+import { Request, Response, NextFunction } from 'express';
 
-module.exports = {
-  async index(req, res, next){
+export = {
+  async index(req:Request, res:Response, next:NextFunction){
     try {
       const users = await knex('users')
       .where('deleted_at', null);
@@ -12,7 +13,7 @@ module.exports = {
     }
     
   },
-  async create(req, res, next){
+  async create(req:Request, res:Response, next:NextFunction){
     try {
       const { username } = req.body;
 
@@ -25,7 +26,7 @@ module.exports = {
       next(error);
     }
   },
-  async update(req, res, next){
+  async update(req:Request, res:Response, next:NextFunction){
     try {
       const { username } = req.body;
       const { id } = req.params;
@@ -40,7 +41,7 @@ module.exports = {
       next(error);
     }
   },
-  async delete(req, res, next){
+  async delete(req:Request, res:Response, next:NextFunction){
     try {
       const { id } = req.params;
 

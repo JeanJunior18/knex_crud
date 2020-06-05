@@ -22,7 +22,7 @@ module.exports = {
       directory: `${__dirname}/src/database/seeds`
     }
   },
-  onUpdateTrigger: table  => `
+  onUpdateTrigger: (table: any)  => `
   CREATE TRIGGER ${table}_updated_at
   BEFORE UPDATE ON ${table}
   FOR EACH ROW

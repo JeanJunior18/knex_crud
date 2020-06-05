@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const UserController = require('./controllers/UserController');
-const ProjectController = require('./controllers/ProjectController');
+import UserController from './controllers/UserController';
+import ProjectController from './controllers/ProjectController';
 
 router
   // Users Routes
@@ -14,4 +14,4 @@ router
   .get('/projects', ProjectController.index)
   .post('/projects', ProjectController.create)
 
-module.exports = router;
+export default router;
